@@ -6,9 +6,11 @@ Joki untuk kebutuhan Skripsi Mahasiswa Uniska Banjarbaru.
 REVISIAN :
 
 PEMBAHARUAN :
+
 (Untuk Video Pertama)
 1. Data Layanan mengenai input data Jenis Layanan dan Merk itu sebenarnya sudah ada di inputan/editan sebelumnya.
 2. Hapus di Inventori Masuk sudah diperbaiki. (Sebenarnya semua tombol work, asal saat yg diklik itu tepat di IKONnya).
+
 (Untuk Video Kedua)
 1. Masalah Fitur "Pencarian/Search" itu digunakan untuk mencari dari semua kolom, jadi misal ketik angka 1 di "Data Layanan" yang muncul ada 3 data, Mengapa? Karena dibagian harga ada angka "1" juga. Jadi bukan masalah error pencariannya, emang fungsinya kyk gitu.
 2. Data Supplier sudah ditambahkan, di Inventori Masuk jg ada si Suppliernya.
