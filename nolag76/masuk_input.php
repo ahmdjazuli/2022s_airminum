@@ -51,7 +51,13 @@
                                 <label>Keterangan</label>
                                 <textarea class="form-control" name="ket" required></textarea>
                             </div>
-                            
+                            <div class="form-group">
+                                <label>Status</label>
+                                <select class="form-control" name="status" required>
+                                    <option value="Baru">Baru</option>
+                                    <option value="Rekondisi">Rekondisi</option>
+                                </select>
+                            </div>
                             <button type="submit" name="simpan" class="btn btn-outline btn-primary"><i class="fa fa-check-square"></i> Simpan</button>
                             <button type="reset" class="btn btn-outline btn-default"><i class="fa fa-refresh"></i> Ulangi</button>
                         </form>
@@ -77,9 +83,10 @@
     $ket         = $_REQUEST['ket'];
     $jumlah      = $_REQUEST['jumlah'];
     $harga       = $_REQUEST['harga'];
+    $status      = $_REQUEST['status'];
     $total       = $jumlah * $harga;
 
-    $tambah = mysqli_query($kon,"INSERT INTO inventorimasuk(tgl,idinventori,ket,jumlah,harga,total,idsupplier) VALUES ('$tgl','$idinventori','$ket','$jumlah','$harga','$total','$idsupplier')");
+    $tambah = mysqli_query($kon,"INSERT INTO inventorimasuk(tgl,idinventori,ket,jumlah,harga,total,idsupplier,status) VALUES ('$tgl','$idinventori','$ket','$jumlah','$harga','$total','$idsupplier','$status')");
     if($tambah){
       ?> <script>alert("Berhasil Disimpan");window.location='masuk.php';</script> <?php
     }else{

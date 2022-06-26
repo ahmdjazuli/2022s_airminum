@@ -46,6 +46,14 @@
                                 <label>Jumlah</label>
                                 <input class="form-control" type="number" min="0" name="jumlah" value="<?= $data['jumlah'] ?>" required>
                             </div>
+                            <div class="form-group">
+                                <label>Status</label>
+                                <select class="form-control" name="status" required>
+                                    <option value="<?= $data['status'] ?>"><?= $data['status'] ?></option>
+                                    <option value="Baru">Baru</option>
+                                    <option value="Rekondisi">Rekondisi</option>
+                                </select>
+                            </div>
                             <button type="submit" name="simpan" class="btn btn-outline btn-primary"><i class="fa fa-check-square"></i> Ubah</button>
                             <button type="reset" class="btn btn-outline btn-default"><i class="fa fa-refresh"></i> Ulangi</button>
                         </form>
@@ -72,9 +80,10 @@
     $jumlah      = $_REQUEST['jumlah'];
     $stok        = $_REQUEST['stok'];
     $harga       = $_REQUEST['harga'];
+    $status       = $_REQUEST['status'];
     $total       = $jumlah * $harga;
 
-    $ubah = mysqli_query($kon,"UPDATE inventorimasuk SET idsupplier = '$idsupplier', ket = '$ket', tgl = '$tgl', jumlah = '$jumlah', total = '$total', harga = '$harga' WHERE idinventorimasuk = '$idinventorimasuk'");
+    $ubah = mysqli_query($kon,"UPDATE inventorimasuk SET idsupplier = '$idsupplier', ket = '$ket', tgl = '$tgl', jumlah = '$jumlah', total = '$total', harga = '$harga', status = '$status' WHERE idinventorimasuk = '$idinventorimasuk'");
     ?> <script>alert("Berhasil Diubah");window.location='masuk.php';</script> <?php
   }
 ?>
