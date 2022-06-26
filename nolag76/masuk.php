@@ -68,7 +68,9 @@
                                         <th>No</th>
                                         <th>Tanggal</th>
                                         <th>Nama (Merk)</th>
+                                        <th>Supplier</th>
                                         <th>Keterangan</th>
+                                        <th>Status</th>
                                         <th>Jumlah</th>
                                         <th>Harga(Rp)</th>
                                         <th>Total(Rp)</th>
@@ -76,13 +78,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $no=1; $query = mysqli_query($kon, "SELECT * FROM inventorimasuk INNER JOIN inventori ON inventorimasuk.idinventori = inventori.idinventori ORDER BY tgl DESC");
+                                    <?php $no=1; $query = mysqli_query($kon, "SELECT * FROM inventorimasuk INNER JOIN inventori ON inventorimasuk.idinventori = inventori.idinventori INNER JOIN supplier ON inventorimasuk.idsupplier = supplier.idsupplier ORDER BY tgl DESC");
                                         while($data = mysqli_fetch_array($query)){ ?>
                                             <tr class="odd gradeX">
                                                     <td><?= $no++; ?></td>
                                                     <td><?= date('d/m/Y',strtotime($data['tgl'])); ?></td>
                                                     <td><?= $data['namainven'] ?> (<?= $data['merk'] ?>)</td>
+                                                    <td><?= $data['suppliernya'] ?></td>
                                                     <td><?= $data['ket'] ?></td>
+                                                    <td><?= $data['status'] ?></td>
                                                     <td><?= $data['jumlah'] ?></td>
                                                     <td><?= number_format($data['harga'],0,'.','.') ?></td>
                                                     <td><?= number_format($data['total'],0,'.','.') ?></td>

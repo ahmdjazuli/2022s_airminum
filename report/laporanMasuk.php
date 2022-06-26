@@ -3,13 +3,13 @@ require "../kon.php";
 	$bulan = $_REQUEST['bulan'];
 	$tahun = $_REQUEST['tahun'];
 	if($bulan AND $tahun){
-		$result = mysqli_query($kon, "SELECT * FROM inventorimasuk INNER JOIN inventori ON inventorimasuk.idinventori = inventori.idinventori WHERE MONTH(tgl) = '$bulan' AND YEAR(tgl) = '$tahun' ORDER BY tgl DESC");
+		$result = mysqli_query($kon, "SELECT * FROM inventorimasuk INNER JOIN inventori ON inventorimasuk.idinventori = inventori.idinventori INNER JOIN supplier ON inventorimasuk.idsupplier = supplier.idsupplier WHERE MONTH(tgl) = '$bulan' AND YEAR(tgl) = '$tahun' ORDER BY tgl DESC");
 	}else if($tahun AND empty($bulan)){
-		$result = mysqli_query($kon, "SELECT * FROM inventorimasuk INNER JOIN inventori ON inventorimasuk.idinventori = inventori.idinventori WHERE YEAR(tgl) = '$tahun' ORDER BY tgl DESC");
+		$result = mysqli_query($kon, "SELECT * FROM inventorimasuk INNER JOIN inventori ON inventorimasuk.idinventori = inventori.idinventori INNER JOIN supplier ON inventorimasuk.idsupplier = supplier.idsupplier WHERE YEAR(tgl) = '$tahun' ORDER BY tgl DESC");
 	}
 ?>
 <?php require('atas.php') ?>
-<style type="text/css" media="print"> @page { size: portrait; } </style>
+<style type="text/css" media="print"> @page { size: landscape; } </style>
 <h2 style="text-align: center;">Laporan Inventori Masuk</h2>
 <h4 style="text-align: center;">
 	<?php 
@@ -28,7 +28,9 @@ require "../kon.php";
         <th>No</th>
         <th>Tanggal</th>
         <th>Nama (Merk)</th>
+        <th>Supplier</th>
         <th>Keterangan</th>
+        <th>Status</th>
         <th>Jumlah</th>
         <th>Harga(Rp)</th>
         <th>Total(Rp)</th>
@@ -44,14 +46,16 @@ $subharga += $data['total'];
 		<td><?= $i++; ?></td>
 		<td><?= date('d/m/Y',strtotime($data['tgl'])); ?></td>
 		<td><?= $data['namainven'] ?> (<?= $data['merk'] ?>)</td>
+		<td><?= $data['suppliernya'] ?></td>
 		<td><?= $data['ket'] ?></td>
+		<td><?= $data['status'] ?></td>
 		<td><?= $data['jumlah'] ?></td>
 		<td><?= number_format($data['harga'],0,'.','.') ?></td> 
 		<td><?= number_format($data['total'],0,'.','.') ?></td>
 </tr>
 <?php endwhile; ?>
 <tr style="font-weight: bold;">
-	<td colspan="6" class="text-right">Total Keseluruhan</td>
+	<td colspan="8" class="text-right">Total Keseluruhan</td>
 	<td class="text-center"><?= number_format($subharga,0,'.','.') ?></td>
 </tr>
   </table>

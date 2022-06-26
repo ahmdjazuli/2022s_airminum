@@ -30,9 +30,25 @@
 	}else if (isset($_GET['id']) AND $_GET['level'] == 'karyawan') {
 		mysqli_query($kon, "DELETE FROM user WHERE id='$_REQUEST[id]'");
 		?> <script>window.location='karyawan.php';</script> <?php
-	// karyawan
+	// pengeluaran
 	}else if (isset($_GET['idpengeluaran'])) {
 		mysqli_query($kon, "DELETE FROM pengeluaran WHERE idpengeluaran='$_REQUEST[idpengeluaran]'");
 		?> <script>window.location='pengeluaran.php';</script> <?php
+	// masuk
+	}else if (isset($_GET['idinventorimasuk'])) {
+		mysqli_query($kon, "DELETE FROM inventorimasuk WHERE idinventorimasuk='$_REQUEST[idinventorimasuk]'");
+		?> <script>window.location='masuk.php';</script> <?php
+	// rusak
+	}else if (isset($_GET['idinventorirusak'])) {
+		mysqli_query($kon, "DELETE FROM inventorirusak WHERE idinventorirusak='$_REQUEST[idinventorirusak]'");
+		?> <script>window.location='rusak.php';</script> <?php
+	// repair
+	}else if (isset($_GET['idinventorirepair'])) {
+		mysqli_query($kon, "DELETE FROM inventorirepair WHERE idinventorirepair='$_REQUEST[idinventorirepair]'");
+		?> <script>window.location='repair.php';</script> <?php
+	// supplier
+	}else if (isset($_GET['idsupplier'])) {
+		mysqli_query($kon, "DELETE FROM supplier WHERE idsupplier='$_REQUEST[idsupplier]'");
+		?> <script>window.location='supplier.php';</script> <?php
 	}
 ?>

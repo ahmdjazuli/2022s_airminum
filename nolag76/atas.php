@@ -65,6 +65,9 @@
                 <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Halaman Utama</a>
             </li>
             <li>
+                <a href="supplier.php"><i class="fa fa-circle-o-notch fa-fw"></i> Data Supplier</a>
+            </li>
+            <li>
                 <a href="jenis.php"><i class="fa fa-circle-o-notch fa-fw"></i> Data Layanan</a>
             </li>
             <li>

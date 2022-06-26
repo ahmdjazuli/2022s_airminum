@@ -16,6 +16,18 @@
                                 <input class="form-control" name="tgl" type="date" value="<?= date('Y-m-d')?>" required>
                             </div>
                             <div class="form-group">
+                                <label>Nama Supplier</label>
+                                <select name="idsupplier" class="form-control" required>
+                                    <option disabled selected>Pilih</option>
+                                  <?php
+                                    $jaka = mysqli_query($kon, "SELECT * FROM supplier ORDER BY suppliernya ASC");
+                                      while($budu = mysqli_fetch_array($jaka)) {
+                                        echo "<option value='$budu[idsupplier]'>$budu[suppliernya]</option>";
+                                      } 
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label>Nama Barang</label>
                                 <select name="idinventori" class="form-control" required>
                                     <option disabled selected>Pilih</option>
@@ -59,14 +71,15 @@
 <?php require('bawah.php') ?>
 <?php
   if (isset($_POST['simpan'])) {
-    $tgl       = $_REQUEST['tgl'];
-    $idinventori    = $_REQUEST['idinventori'];
-    $ket            = $_REQUEST['ket'];
-    $jumlah         = $_REQUEST['jumlah'];
-    $harga         = $_REQUEST['harga'];
-    $total         = $jumlah * $harga;
+    $tgl         = $_REQUEST['tgl'];
+    $idinventori = $_REQUEST['idinventori'];
+    $idsupplier  = $_REQUEST['idsupplier'];
+    $ket         = $_REQUEST['ket'];
+    $jumlah      = $_REQUEST['jumlah'];
+    $harga       = $_REQUEST['harga'];
+    $total       = $jumlah * $harga;
 
-    $tambah = mysqli_query($kon,"INSERT INTO inventorimasuk(tgl,idinventori,ket,jumlah,harga,total) VALUES ('$tgl','$idinventori','$ket','$jumlah','$harga','$total')");
+    $tambah = mysqli_query($kon,"INSERT INTO inventorimasuk(tgl,idinventori,ket,jumlah,harga,total,idsupplier) VALUES ('$tgl','$idinventori','$ket','$jumlah','$harga','$total','$idsupplier')");
     if($tambah){
       ?> <script>alert("Berhasil Disimpan");window.location='masuk.php';</script> <?php
     }else{

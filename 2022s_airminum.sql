@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2022 at 03:38 AM
+-- Generation Time: Jun 26, 2022 at 05:45 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -43,27 +43,27 @@ CREATE TABLE `detail` (
 --
 
 INSERT INTO `detail` (`iddetail`, `notransaksi`, `jenisny`, `merkny`, `jumlah`, `hargany`, `subharga`) VALUES
-(73, '2021120528', 'Air Mineral/Kotak', 'Aqua', 1, 2500, 2500),
-(74, '2021120528', 'Isi Ulang', 'Amanah', 2, 3000, 6000),
-(75, '2021120538', 'Isi Ulang', 'Amanah', 2, 3000, 6000),
+(73, '2021120528', 'Air Mineral Botol', 'Aqua', 1, 2500, 2500),
+(74, '2021120528', 'Isi Ulang', '-', 2, 3000, 6000),
+(75, '2021120538', 'Isi Ulang', '-', 2, 3000, 6000),
 (76, '2021120558', 'Tukar Galon', 'Prof', 1, 16000, 16000),
-(77, '2021120525', 'Air Mineral/Kotak', 'Aqua', 3, 2500, 7500),
-(78, '2021120525', 'Isi Ulang', 'Amanah', 1, 3000, 3000),
-(79, '2021120501', 'Isi Ulang', 'Amanah', 2, 3000, 6000),
+(77, '2021120525', 'Air Mineral Botol', 'Aqua', 3, 2500, 7500),
+(78, '2021120525', 'Isi Ulang', '-', 1, 3000, 3000),
+(79, '2021120501', 'Isi Ulang', '-', 2, 3000, 6000),
 (80, '2021120503', 'Tukar Galon', 'Prof', 2, 16000, 32000),
-(81, '2021120503', 'Air Mineral/Kotak', 'Aqua', 1, 2500, 2500),
+(81, '2021120503', 'Air Mineral Botol', 'Aqua', 1, 2500, 2500),
 (82, '2021120508', 'Isi Ulang', 'Amanah', 3, 3000, 9000),
 (83, '2021120510', 'Isi Ulang', 'Amanah', 1, 3000, 3000),
-(84, '2021120507', 'Air Mineral/Kotak', 'Aqua', 4, 2500, 10000),
-(85, '2021120507', 'Isi Ulang', 'Amanah', 2, 3000, 6000),
-(86, '2021120538', 'Isi Ulang', 'Amanah', 3, 3000, 9000),
+(84, '2021120507', 'Air Mineral Botol', 'Aqua', 4, 2500, 10000),
+(85, '2021120507', 'Isi Ulang', '-', 2, 3000, 6000),
+(86, '2021120538', 'Isi Ulang', '-', 3, 3000, 9000),
 (87, '2021120538', 'Tukar Galon', 'Prof', 1, 16000, 16000),
 (88, '2021120543', 'Isi Ulang', 'Amanah', 3, 3000, 9000),
-(90, '2022011535', 'Air Mineral/Kotak', 'Aqua', 5, 2500, 12500),
-(91, '2022052854', 'Isi Ulang', 'Amanah', 2, 3000, 6000),
-(92, '2022052916', 'Air Mineral/Kotak', 'Aqua', 15, 2500, 37500),
+(90, '2022011535', 'Air Mineral Botol', 'Aqua', 5, 2500, 12500),
+(91, '2022052854', 'Isi Ulang', '-', 2, 3000, 6000),
+(92, '2022052916', 'Air Mineral Botol', 'Aqua', 15, 2500, 37500),
 (93, '2022053045', 'Tukar Galon', 'Prof', 1, 16000, 16000),
-(94, '2022053030', 'Isi Ulang', 'Amanah', 6, 3000, 18000);
+(94, '2022053030', 'Isi Ulang', '-', 6, 3000, 18000);
 
 -- --------------------------------------------------------
 
@@ -106,9 +106,9 @@ CREATE TABLE `inventori` (
 
 INSERT INTO `inventori` (`idinventori`, `namainven`, `merk`, `stok`) VALUES
 (2, 'Housing Filter Air', 'Nanotech', 4),
-(4, 'Sikat Pembersih Galon Manual', '-', 1),
-(6, 'Catridge Filter', 'Eugen', 0),
-(7, 'Lampu Ultraviolet', 'Philips', 0),
+(4, 'Sikat Pembersih Galon Manual', '-', 0),
+(6, 'Catridge Filter', 'Eugen', 2),
+(7, 'Lampu Ultraviolet', 'Philips', -1),
 (8, 'Tabung Filter Air Fiber (FRP)', 'Fujiro', 2);
 
 -- --------------------------------------------------------
@@ -120,8 +120,10 @@ INSERT INTO `inventori` (`idinventori`, `namainven`, `merk`, `stok`) VALUES
 CREATE TABLE `inventorimasuk` (
   `idinventorimasuk` int(5) NOT NULL,
   `idinventori` int(2) NOT NULL,
+  `idsupplier` int(5) NOT NULL,
   `tgl` date NOT NULL,
   `ket` text NOT NULL,
+  `status` varchar(50) NOT NULL,
   `jumlah` int(3) NOT NULL,
   `harga` float NOT NULL,
   `total` float NOT NULL
@@ -131,10 +133,10 @@ CREATE TABLE `inventorimasuk` (
 -- Dumping data for table `inventorimasuk`
 --
 
-INSERT INTO `inventorimasuk` (`idinventorimasuk`, `idinventori`, `tgl`, `ket`, `jumlah`, `harga`, `total`) VALUES
-(4, 4, '2022-05-20', '-', 3, 50000, 150000),
-(5, 7, '2022-05-28', '-', 1, 50000, 50000),
-(6, 8, '2022-05-29', '-', 2, 10000, 20000);
+INSERT INTO `inventorimasuk` (`idinventorimasuk`, `idinventori`, `idsupplier`, `tgl`, `ket`, `status`, `jumlah`, `harga`, `total`) VALUES
+(11, 6, 1, '2022-06-25', '-', 'Baru', 2, 20000, 40000),
+(12, 4, 1, '2022-06-24', '-', 'Baru', 2, 15000, 30000),
+(13, 8, 2, '2022-06-23', '-', 'Rekondisi', 2, 25000, 50000);
 
 --
 -- Triggers `inventorimasuk`
@@ -251,9 +253,11 @@ CREATE TABLE `jenis` (
 --
 
 INSERT INTO `jenis` (`idjenis`, `jenis`, `merk`, `harga`, `ket`) VALUES
-(3, 'Isi Ulang', 'Amanah', 3000, '-'),
+(3, 'Isi Ulang', '-', 3000, '-'),
 (4, 'Tukar Galon', 'Prof', 16000, '-'),
-(8, 'Air Mineral/Kotak', 'Aqua', 2500, '-');
+(8, 'Air Mineral Botol', 'Aqua', 2500, '-'),
+(9, 'Air Mineral Botol', 'Prof', 3500, '-'),
+(10, 'Tukar Galon', 'Amanah', 10000, '-');
 
 -- --------------------------------------------------------
 
@@ -274,6 +278,27 @@ CREATE TABLE `pengeluaran` (
 
 INSERT INTO `pengeluaran` (`idpengeluaran`, `tgl`, `ket`, `total`) VALUES
 (2, '2021-12-14', 'Listrik', 150000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `supplier`
+--
+
+CREATE TABLE `supplier` (
+  `idsupplier` int(5) NOT NULL,
+  `suppliernya` varchar(100) NOT NULL,
+  `telp` varchar(15) NOT NULL,
+  `alamat` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `supplier`
+--
+
+INSERT INTO `supplier` (`idsupplier`, `suppliernya`, `telp`, `alamat`) VALUES
+(1, 'Zaskia Store', '08947321422', 'Gang Hijrah Raya, Alkah Muhibbin 4 Sekumpul Ujung'),
+(2, 'Akhmad Syabani', '081234113325', 'Jl. Trikora Rt.32 Rw.5 Kode Pos 70721 Guntung Manggis');
 
 -- --------------------------------------------------------
 
@@ -371,7 +396,8 @@ ALTER TABLE `inventori`
 --
 ALTER TABLE `inventorimasuk`
   ADD PRIMARY KEY (`idinventorimasuk`),
-  ADD KEY `idinventori` (`idinventori`);
+  ADD KEY `idinventori` (`idinventori`),
+  ADD KEY `idsupplier` (`idsupplier`);
 
 --
 -- Indexes for table `inventorirepair`
@@ -399,6 +425,12 @@ ALTER TABLE `jenis`
 --
 ALTER TABLE `pengeluaran`
   ADD PRIMARY KEY (`idpengeluaran`);
+
+--
+-- Indexes for table `supplier`
+--
+ALTER TABLE `supplier`
+  ADD PRIMARY KEY (`idsupplier`);
 
 --
 -- Indexes for table `transaksi`
@@ -439,7 +471,7 @@ ALTER TABLE `inventori`
 -- AUTO_INCREMENT for table `inventorimasuk`
 --
 ALTER TABLE `inventorimasuk`
-  MODIFY `idinventorimasuk` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idinventorimasuk` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `inventorirepair`
@@ -457,13 +489,19 @@ ALTER TABLE `inventorirusak`
 -- AUTO_INCREMENT for table `jenis`
 --
 ALTER TABLE `jenis`
-  MODIFY `idjenis` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idjenis` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `pengeluaran`
 --
 ALTER TABLE `pengeluaran`
   MODIFY `idpengeluaran` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `supplier`
+--
+ALTER TABLE `supplier`
+  MODIFY `idsupplier` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -482,16 +520,35 @@ ALTER TABLE `detail`
   ADD CONSTRAINT `detail_ibfk_1` FOREIGN KEY (`notransaksi`) REFERENCES `transaksi` (`notransaksi`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Constraints for table `gaji`
+--
+ALTER TABLE `gaji`
+  ADD CONSTRAINT `gaji_ibfk_1` FOREIGN KEY (`id`) REFERENCES `user` (`id`);
+
+--
 -- Constraints for table `inventorimasuk`
 --
 ALTER TABLE `inventorimasuk`
-  ADD CONSTRAINT `inventorimasuk_ibfk_1` FOREIGN KEY (`idinventori`) REFERENCES `inventori` (`idinventori`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `inventorimasuk_ibfk_1` FOREIGN KEY (`idinventori`) REFERENCES `inventori` (`idinventori`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `inventorimasuk_ibfk_2` FOREIGN KEY (`idsupplier`) REFERENCES `supplier` (`idsupplier`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `inventorirepair`
+--
+ALTER TABLE `inventorirepair`
+  ADD CONSTRAINT `inventorirepair_ibfk_1` FOREIGN KEY (`idinventorirusak`) REFERENCES `inventorirusak` (`idinventorirusak`);
 
 --
 -- Constraints for table `inventorirusak`
 --
 ALTER TABLE `inventorirusak`
   ADD CONSTRAINT `inventorirusak_ibfk_1` FOREIGN KEY (`idinventori`) REFERENCES `inventori` (`idinventori`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id`) REFERENCES `user` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
