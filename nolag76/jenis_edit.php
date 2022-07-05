@@ -13,7 +13,7 @@
             <div class="col-lg-6">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                         <form role="form" action="" method="POST">
+                         <form role="form" action="" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label>Jenis</label>
                                 <input type="text" value="<?= $data['jenis'] ?>" name="jenis" list="option" class="form-control" required>
@@ -22,6 +22,11 @@
                                     <option value="Tukar Galon">Tukar Galon</option>
                                     <option value="Air Mineral/botol">Air Mineral/botol</option>
                                 </datalist>
+                            </div>
+                            <div class="form-group">
+                                <label>Foto</label>
+                                <input type="file" name="foto" class="form-control" accept="image/*">
+                                <input type="hidden" name="fotoOLD" value="<?= $j['foto'] ?>">
                             </div>
                             <div class="form-group">
                                 <label>Merk</label>
@@ -65,11 +70,24 @@
     $ket   = $_REQUEST['ket'];
     $merk   = $_REQUEST['merk'];
 
-    $ubah = mysqli_query($kon,"UPDATE jenis SET jenis = '$jenis', harga = '$harga', ket = '$ket', merk = '$merk' WHERE idjenis = '$idjenis'");
-    if($ubah){
-      ?> <script>alert("Berhasil Diubah");window.location='jenis.php';</script> <?php
+    $namafile = $_FILES['foto']['tmp_name'];
+    $checkin  = $_FILES['foto']['error'];
+    $ukuran   = $_FILES['foto']['size'];
+    $lokasi   = $_FILES['foto']['name'];
+    $fotoOLD  = $_REQUEST['fotoOLD'];
+    $namabaru = 'images/'.rand(1000,9999).preg_replace("/[^a-zA-Z0-9]/", ".", $lokasi);
+
+    if($checkin){
+        mysqli_query($kon,"UPDATE jenis SET jenis = '$jenis', harga = '$harga', ket = '$ket', merk = '$merk', foto = '$fotoOLD' WHERE idjenis = '$idjenis'");
+         ?><script>alert("Berhasil Diubah tanpa Mengubah Foto");window.location='jenis.php';</script> <?php
     }else{
-      ?> <script>alert("Gagal Diubah");window.location='jenis.php';</script> <?php
-    }
+        if($ukuran < 2048000){
+            unlink('../'.$fotoOLD); move_uploaded_file($namafile, '../'.$namabaru);
+            mysqli_query($kon,"UPDATE jenis SET jenis = '$jenis', harga = '$harga', ket = '$ket', merk = '$merk', foto = '$namabaru' WHERE idjenis = '$idjenis'");
+            ?> <script>alert("Berhasil Diubah dengan Foto Baru");window.location='jenis.php';</script> <?php
+        }else{ 
+            ?> <script>alert("Gagal Diubah, Ukuran Foto Terlalu Besar");window.location='jenis.php';</script> <?php
+        }
+    }   
   }
 ?>

@@ -10,7 +10,7 @@
             <div class="col-lg-6">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                         <form role="form" action="" method="POST" autocomplete="off">
+                         <form role="form" action="" method="POST" autocomplete="off" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label>Jenis Pilihan</label>
                                 <input type="text" name="jenis" list="option" class="form-control" required>
@@ -19,6 +19,10 @@
                                     <option value="Tukar Galon">Tukar Galon</option>
                                     <option value="Air Mineral/botol">Air Mineral/botol</option>
                                 </datalist>
+                            </div>
+                            <div class="form-group">
+                                <label>Foto</label>
+                                <input type="file" name="foto" class="form-control" accept="image/*">
                             </div>
                             <div class="form-group">
                                 <label>Merk</label>
@@ -62,11 +66,19 @@
     $harga = $_REQUEST['harga'];
     $merk = $_REQUEST['merk'];
 
-    $tambah = mysqli_query($kon,"INSERT INTO jenis(jenis,ket,harga,merk) VALUES ('$jenis','$ket','$harga','$merk')");
-    if($tambah){
-      ?> <script>alert("Berhasil Disimpan");window.location='jenis.php';</script> <?php
-    }else{
-      ?> <script>alert("Gagal Disimpan");window.location='jenis_input.php';</script> <?php
+    $namafile = $_FILES['foto']['tmp_name'];
+    $checkin  = $_FILES['foto']['error'];
+    $ukuran   = $_FILES['foto']['size'];
+    $lokasi   = $_FILES['foto']['name'];
+    $fotoOLD  = $_REQUEST['fotoOLD'];
+    $namabaru = 'images/'.rand(1000,9999).preg_replace("/[^a-zA-Z0-9]/", ".", $lokasi);
+
+    if($ukuran < 2048000){ 
+        move_uploaded_file($namafile, '../'.$namabaru);
+        mysqli_query($kon,"INSERT INTO jenis(jenis,ket,harga,merk,foto) VALUES ('$jenis','$ket','$harga','$merk','$namabaru')");
+        ?> <script>alert("Berhasil Disimpan");window.location='jenis.php';</script> <?php
+    }else{ 
+        ?> <script>alert("Gagal Disimpan, Ukuran Terlalu Besar");window.location='jenis_input.php';</script> <?php
     }
   }
 ?>

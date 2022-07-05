@@ -16,6 +16,8 @@
 		?> <script>window.location='biaya.php';</script> <?php
 	// jenis
 	}else if (isset($_GET['idjenis'])) {
+		$query = mysqli_query($kon, "SELECT * FROM jenis WHERE idjenis='$_REQUEST[idjenis]'");
+		$row = mysqli_fetch_array($query); unlink('../'.$row['foto']);
 		mysqli_query($kon, "DELETE FROM jenis WHERE idjenis='$_REQUEST[idjenis]'");
 		?> <script>window.location='jenis.php';</script> <?php
 	// gaji

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2022 at 05:45 AM
+-- Generation Time: Jul 05, 2022 at 03:53 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -106,9 +106,9 @@ CREATE TABLE `inventori` (
 
 INSERT INTO `inventori` (`idinventori`, `namainven`, `merk`, `stok`) VALUES
 (2, 'Housing Filter Air', 'Nanotech', 4),
-(4, 'Sikat Pembersih Galon Manual', '-', 0),
+(4, 'Sikat Pembersih Galon Manual', '-', 1),
 (6, 'Catridge Filter', 'Eugen', 2),
-(7, 'Lampu Ultraviolet', 'Philips', -1),
+(7, 'Lampu Ultraviolet', 'Philips', 2),
 (8, 'Tabung Filter Air Fiber (FRP)', 'Fujiro', 2);
 
 -- --------------------------------------------------------
@@ -243,6 +243,7 @@ DELIMITER ;
 CREATE TABLE `jenis` (
   `idjenis` int(5) NOT NULL,
   `jenis` varchar(50) NOT NULL,
+  `foto` text NOT NULL,
   `merk` varchar(50) NOT NULL,
   `harga` float NOT NULL,
   `ket` text NOT NULL
@@ -252,12 +253,12 @@ CREATE TABLE `jenis` (
 -- Dumping data for table `jenis`
 --
 
-INSERT INTO `jenis` (`idjenis`, `jenis`, `merk`, `harga`, `ket`) VALUES
-(3, 'Isi Ulang', '-', 3000, '-'),
-(4, 'Tukar Galon', 'Prof', 16000, '-'),
-(8, 'Air Mineral Botol', 'Aqua', 2500, '-'),
-(9, 'Air Mineral Botol', 'Prof', 3500, '-'),
-(10, 'Tukar Galon', 'Amanah', 10000, '-');
+INSERT INTO `jenis` (`idjenis`, `jenis`, `foto`, `merk`, `harga`, `ket`) VALUES
+(3, 'Isi Ulang', 'images/3450Depot.air.minum.isi.ulang.jpg', '-', 3000, '-'),
+(4, 'Tukar Galon', 'images/8989galon.air.minum.43.jpeg', 'Prof', 16000, '-'),
+(8, 'Air Mineral Botol', 'images/6125771a803c1460e95bfe895a59d258a442.jpg', 'Aqua', 2500, '-'),
+(9, 'Air Mineral Botol', 'images/1468a89a345d.bb59.4df1.87b8.bacc66e11e06.Go.Biz.20210204.134603.jpeg', 'Prof', 3500, '-'),
+(10, 'Tukar Galon', 'images/96928c52d72d.f653.479f.b4da.82c431b246be.jpg', 'Amanah', 10000, '-');
 
 -- --------------------------------------------------------
 
@@ -489,7 +490,7 @@ ALTER TABLE `inventorirusak`
 -- AUTO_INCREMENT for table `jenis`
 --
 ALTER TABLE `jenis`
-  MODIFY `idjenis` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idjenis` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `pengeluaran`
