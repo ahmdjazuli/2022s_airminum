@@ -4,6 +4,7 @@ Judul Aplikasi :  APLIKASI PENJUALAN PADA DEPOT ISI ULANG DUA PUTRA BERBASIS WEB
 Joki untuk kebutuhan Skripsi Mahasiswa Uniska Banjarbaru.
 
 REVISIAN :
+1. Sudah ditambahkan Upload Foto di Data Jenis Layanan.
 
 PEMBAHARUAN :
 
