@@ -11,6 +11,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Jenis</th>
+                                    <th>Foto</th>
                                     <th>Merk</th>
                                     <th>Harga (Rp)</th>
                                     <th>Keterangan</th>
@@ -22,6 +23,7 @@
                                             <tr class="odd gradeX" style="color: black;">
                                                     <td><?= $no++; ?></td>
                                                     <td><?= $data['jenis'] ?></td>
+                                                    <td><a target="_blank" href="<?= $data['foto'] ?>"><img src="<?= $data['foto'] ?>" width='60px'></a></td>
                                                     <td><?= $data['merk'] ?></td>
                                                     <td><?= number_format($data['harga'],0,'.','.') ?></td>
                                                     <td><?= $data['ket'] ?></td>
