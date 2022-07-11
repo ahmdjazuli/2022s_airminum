@@ -63,10 +63,10 @@
                                     <th>Desember</th>
                                 </tr>
                                 <tr class="odd gradeX"><?php 
-                                for($i = 7; $i < 13; $i++){ $data = mysqli_fetch_array($detail2);     ?>
+                                for($i = 7; $i < 13; $i++){ $row = mysqli_fetch_array($detail2);     ?>
                                     <?php 
-                                        if($data['total']!=''){
-                                            ?><td><?= number_format($data['total'],0,'.','.') ?></td><?php
+                                        if($row['total']!=''){
+                                            ?><td><?= number_format($row['total'],0,'.','.') ?></td><?php
                                         }else{
                                             ?><td>belum ada</td><?php
                                         }

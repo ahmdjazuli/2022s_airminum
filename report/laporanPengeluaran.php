@@ -3,7 +3,7 @@ require "../kon.php"; error_reporting(0);
 	$tahun = $_REQUEST['tahun'];
   $bulan = $_REQUEST['bulan'];
 	if($tahun AND $bulan){
-		$result = mysqli_query($kon, "SELECT *, YEAR(tgl) as tahun, MONTH(tgl) as bulan FROM `transaksi` WHERE YEAR(tgl) = '$tahun' AND MONTH(tgl) = '$bulan'");
+		$result = mysqli_query($kon, "SELECT *, YEAR(tgl) as tahun, MONTH(tgl) as bulan FROM `transaksi` WHERE YEAR(tgl) = '$tahun' AND MONTH(tgl) = '$bulan' GROUP BY bulan");
 	}
 ?>
 <?php require('atas.php') ?>

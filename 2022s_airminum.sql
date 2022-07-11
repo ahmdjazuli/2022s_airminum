@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 05, 2022 at 03:53 AM
+-- Generation Time: Jul 11, 2022 at 12:06 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -83,9 +83,11 @@ CREATE TABLE `gaji` (
 --
 
 INSERT INTO `gaji` (`idgaji`, `id`, `tgl`, `total`) VALUES
-(7, 9, '2021-12-04', 600000),
 (8, 9, '2022-01-15', 650000),
-(9, 9, '2022-02-15', 600000);
+(9, 9, '2022-02-15', 600000),
+(10, 9, '2022-03-11', 600000),
+(11, 9, '2022-05-11', 620000),
+(12, 9, '2022-04-11', 600000);
 
 -- --------------------------------------------------------
 
@@ -460,7 +462,7 @@ ALTER TABLE `detail`
 -- AUTO_INCREMENT for table `gaji`
 --
 ALTER TABLE `gaji`
-  MODIFY `idgaji` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idgaji` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `inventori`
@@ -490,7 +492,7 @@ ALTER TABLE `inventorirusak`
 -- AUTO_INCREMENT for table `jenis`
 --
 ALTER TABLE `jenis`
-  MODIFY `idjenis` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idjenis` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `pengeluaran`
