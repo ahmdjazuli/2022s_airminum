@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 11, 2022 at 12:06 PM
+-- Generation Time: Jul 12, 2022 at 01:43 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -306,6 +306,27 @@ INSERT INTO `supplier` (`idsupplier`, `suppliernya`, `telp`, `alamat`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `supplier_detail`
+--
+
+CREATE TABLE `supplier_detail` (
+  `idsupplierdetail` int(5) NOT NULL,
+  `idsupplier` int(5) NOT NULL,
+  `idjenis` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `supplier_detail`
+--
+
+INSERT INTO `supplier_detail` (`idsupplierdetail`, `idsupplier`, `idjenis`) VALUES
+(1, 2, 8),
+(2, 1, 9),
+(3, 2, 10);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `transaksi`
 --
 
@@ -436,6 +457,14 @@ ALTER TABLE `supplier`
   ADD PRIMARY KEY (`idsupplier`);
 
 --
+-- Indexes for table `supplier_detail`
+--
+ALTER TABLE `supplier_detail`
+  ADD PRIMARY KEY (`idsupplierdetail`),
+  ADD KEY `idsupplier` (`idsupplier`),
+  ADD KEY `idjenis` (`idjenis`);
+
+--
 -- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
@@ -507,6 +536,12 @@ ALTER TABLE `supplier`
   MODIFY `idsupplier` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `supplier_detail`
+--
+ALTER TABLE `supplier_detail`
+  MODIFY `idsupplierdetail` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
@@ -546,6 +581,13 @@ ALTER TABLE `inventorirepair`
 --
 ALTER TABLE `inventorirusak`
   ADD CONSTRAINT `inventorirusak_ibfk_1` FOREIGN KEY (`idinventori`) REFERENCES `inventori` (`idinventori`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `supplier_detail`
+--
+ALTER TABLE `supplier_detail`
+  ADD CONSTRAINT `supplier_detail_ibfk_1` FOREIGN KEY (`idsupplier`) REFERENCES `supplier` (`idsupplier`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `supplier_detail_ibfk_2` FOREIGN KEY (`idjenis`) REFERENCES `jenis` (`idjenis`);
 
 --
 -- Constraints for table `transaksi`
