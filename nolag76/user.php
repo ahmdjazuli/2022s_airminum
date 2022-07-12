@@ -1,9 +1,34 @@
 <?php require('atas.php') ?>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal-sm" style="margin:0 auto">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Cetak</h4>
+            </div>
+            <div class="modal-body">
+                <form action="../report/laporanPelanggan.php" target="_blank" method="post">
+                <label>Jenis Kelamin</label>
+                <select name="jk" class="form-control">
+                    <option value="">SEMUA</option>
+                    <option value="Laki-Laki">Laki-Laki</option>
+                    <option value="Wanita">Wanita</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-print"></i></button>
+            </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header"><button class="btn btn-primary btn-lg"><a href="user_input.php" style="color: white; text-decoration: none">+</a></button> Data Pelanggan</h1>
+                <h1 class="page-header"><button class="btn btn-primary btn-lg"><a href="user_input.php" style="color: white; text-decoration: none">+</a></button> <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"> <i class="fa fa-print"></i> </button> Data Pelanggan</h1>
             </div>
         </div>
         <div class="row">

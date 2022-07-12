@@ -222,7 +222,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
-                                <i class="fa fa-battery-4 fa-5x"></i>
+                                <i class="fa fa-circle-o-notch fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge">10</div>
@@ -240,10 +240,33 @@
                     </a>
                 </div>
             </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-primary" style="border-color: #222222;border-width: 2px;">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-user-circle fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">11</div>
+                                <div>Pelanggan</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="pelanggan.php">
+                        <div class="panel-footer">
+                            <span class="pull-left">Lihat Selengkapnya</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
             <div class="col-lg-6 col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> Laporan Grafik Penjualan Paling Banyak (11)
+                        <i class="fa fa-bar-chart-o fa-fw"></i> Laporan Grafik Penjualan Paling Banyak (12)
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">

@@ -5,6 +5,7 @@ Joki untuk kebutuhan Skripsi Mahasiswa Uniska Banjarbaru.
 
 REVISIAN LAINNYA :
 1. Supplier jadi Report dengan menambahkan detail barang yg dia jual apa aja. (tabel baru didatabase -> supplier_detail)
+2. Data Pelanggan jadi Report juga, filter cetak berdasarkan jenis kelamin.
 
 REVISIAN :
 1. Sudah ditambahkan Upload Foto di Data Jenis Layanan.
@@ -31,11 +32,9 @@ Bahasa Pemograman :
 3. CSS
 
 Fitur Website :
-1. Template Pullo (Hitam Biru)
-2. Template Admin Starmin 
-3. Multi User (Admin)
-4. Halaman Utama (Login)
-5. Data Master terdiri dari (5) : Data Karyawan, Pelanggan, Layanan, Pengeluaran Lainnya dan Inventori.
-6. Data Report terdiri dari (11) : Laporan Supplier (NEW), Inventori Masuk, Inventori Rusak, Inventori Perbaikan, Transaksi, Cetak Nota Transaksi, Gaji Karyawan, Rekap Gaji Karyawan, Pengeluaran Bulanan, Pendapatan (Harian, Bulanan, Tahunan) dan Grafik Penjualan Paling Banyak.
-7. Alert Standar
-8. CRUD Standar
+1. Multi User (Admin)
+2. Halaman Utama (Login)
+3. Data Master terdiri dari (4) : Data Karyawan, Layanan, Pengeluaran Lainnya dan Inventori.
+4. Data Report terdiri dari (12) : Laporan Pelanggan (NEW), Supplier (NEW), Inventori Masuk, Inventori Rusak, Inventori Perbaikan, Transaksi, Cetak Nota Transaksi, Gaji Karyawan, Rekap Gaji Karyawan, Pengeluaran Bulanan, Pendapatan (Harian, Bulanan, Tahunan) dan Grafik Penjualan Paling Banyak.
+5. Alert Standar
+6. CRUD Standar
