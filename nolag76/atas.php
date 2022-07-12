@@ -65,9 +65,6 @@
                 <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Halaman Utama</a>
             </li>
             <li>
-                <a href="supplier.php"><i class="fa fa-circle-o-notch fa-fw"></i> Data Supplier</a>
-            </li>
-            <li>
                 <a href="jenis.php"><i class="fa fa-circle-o-notch fa-fw"></i> Data Layanan</a>
             </li>
             <li>
@@ -86,6 +83,9 @@
                         <a href="user.php"><i class="fa fa-user-circle fa-fw"></i> Pelanggan</a>
                     </li>
                 </ul>
+            </li>
+            <li>
+                <a href="supplier.php"><i class="fa fa-circle-o-notch fa-fw"></i> Supplier</a>
             </li>
             <li>
                 <a href="masuk.php"><i class="fa fa-th fa-fw"></i> Inventori Masuk</a>
@@ -109,8 +109,11 @@
                 <a href="pendapatan2.php"><i class="fa fa-battery-4 fa-fw"></i> Pendapatan</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-file fa-fw"></i> Laporan (8)<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-file fa-fw"></i> Laporan (11)<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
+                    <li>
+                        <a href="supplier.php"><i class="fa fa-circle-o-notch fa-fw"></i> Supplier</a>
+                    </li>
                     <li>
                         <a href="masuk.php"><i class="fa fa-th fa-fw"></i> Inventori Masuk</a>
                     </li>
@@ -122,6 +125,12 @@
                     </li>
                     <li>
                         <a href="transaksi.php"><i class="fa fa-get-pocket fa-fw"></i> Transaksi</a>
+                    </li>
+                    <li>
+                        <a href="transaksi.php"><i class="fa fa-get-pocket fa-fw"></i> Nota Transaksi</a>
+                    </li>
+                    <li>
+                        <a href="gaji.php"><i class="fa fa-money fa-fw"></i> Gaji Karyawan</a>
                     </li>
                     <li>
                         <a href="gaji.php"><i class="fa fa-money fa-fw"></i> Rekap Gaji Karyawan</a>

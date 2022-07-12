@@ -3,6 +3,9 @@ Judul Aplikasi :  APLIKASI PENJUALAN PADA DEPOT ISI ULANG DUA PUTRA BERBASIS WEB
 
 Joki untuk kebutuhan Skripsi Mahasiswa Uniska Banjarbaru.
 
+REVISIAN LAINNYA :
+1. Supplier jadi Report dengan menambahkan detail barang yg dia jual apa aja. (tabel baru didatabase -> supplier_detail)
+
 REVISIAN :
 1. Sudah ditambahkan Upload Foto di Data Jenis Layanan.
 
@@ -33,6 +36,6 @@ Fitur Website :
 3. Multi User (Admin)
 4. Halaman Utama (Login)
 5. Data Master terdiri dari (5) : Data Karyawan, Pelanggan, Layanan, Pengeluaran Lainnya dan Inventori.
-6. Data Report terdiri dari (10) : Laporan Inventori Masuk, Inventori Rusak, Inventori Perbaikan, Transaksi, Cetak Nota Transaksi, Gaji Karyawan, Rekap Gaji Karyawan, Pengeluaran Bulanan, Pendapatan (Harian, Bulanan, Tahunan) dan Grafik Penjualan Paling Banyak.
+6. Data Report terdiri dari (11) : Laporan Supplier (NEW), Inventori Masuk, Inventori Rusak, Inventori Perbaikan, Transaksi, Cetak Nota Transaksi, Gaji Karyawan, Rekap Gaji Karyawan, Pengeluaran Bulanan, Pendapatan (Harian, Bulanan, Tahunan) dan Grafik Penjualan Paling Banyak.
 7. Alert Standar
 8. CRUD Standar

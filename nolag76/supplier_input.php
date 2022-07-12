@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header"><button class="btn btn-primary btn-lg"><a href="supplier.php" style="color: white; text-decoration: none"> <i class="fa fa-angle-left"></i></a></button> Data Layanan</h1>
+                <h1 class="page-header"><button class="btn btn-primary btn-lg"><a href="supplier.php" style="color: white; text-decoration: none"> <i class="fa fa-angle-left"></i></a></button> Tambah Supplier</h1>
             </div>
         </div>
         <div class="row">
