@@ -253,7 +253,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="pelanggan.php">
+                    <a href="user.php">
                         <div class="panel-footer">
                             <span class="pull-left">Lihat Selengkapnya</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
